@@ -1,0 +1,37 @@
+{
+    "name": "syntelix/omnipay-santander-elavon-redirect",
+    "type": "library",
+    "description": "Santander Elavon Redirect gateway for the Omnipay payment processing library",
+    "keywords": [
+        "santander",
+        "elavon",
+        "redirect",
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment"
+    ],
+    "homepage": "https://github.com/syntelix/omnipay-santander-elavon-redirect",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nacho Moço",
+            "email": "nmq@syntelix.net"
+        }
+    ],
+    "autoload": {
+          "psr-4": { "Omnipay\\SantanderElavonRedirect\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
