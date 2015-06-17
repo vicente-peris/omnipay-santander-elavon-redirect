@@ -18,7 +18,7 @@ to your `composer.json` file:
     }
   ],
     "require": {
-        "syntelix/omnipay-santender-elavon": "~2.0"
+        "syntelix/omnipay-santender-elavon": "@dev"
     }
 }
 ```
