@@ -14,7 +14,7 @@ to your `composer.json` file:
     "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/syntelix/omnipay-santander-elavon"
+      "url": "https://github.com/syntelix/omnipay-santander-elavon-redirect"
     }
   ],
     "require": {
