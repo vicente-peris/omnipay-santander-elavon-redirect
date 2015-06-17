@@ -1,6 +1,6 @@
 # Omnipay: Santander Elavon Redirect
 
-**Santander Elavon driver for the Omnipay PHP payment processing library**
+**Santander Elavon Redirect driver for the Omnipay PHP payment processing library**
 
 processing library for PHP 5.3+. This package implements Santander Elavon support for Omnipay.
 
@@ -32,7 +32,7 @@ And run composer to update your dependencies:
 
 The following gateways are provided by this package:
 
-* Santander Elavon
+* Santander Elavon Redirect
 
 For general usage instructions, please see the main [Omnipay](https://github.com/omnipay/omnipay)
 repository.
