@@ -29,7 +29,7 @@ class CompletePurchaseRequest extends PurchaseRequest
 
         $data = array();
 
-        foreach (array('MERCHANT_ID', 'ACCOUNT', 'ORDER_ID', 'AMOUNT', 'CURRENCY', 'TIMESTAMP', 'SHA1HASH', 'AUTO_SETTLE_FLAG', 'COMMENT1', 'COMMENT2', 'RETURN_TSS', 'SHIPPING_CODE', 'SHIPPING_CO', 'BILLING_CODE', 'BILLING_CO', 'CUST_NUM', 'VAR_REF', 'PROD_ID', 'ANYTHING ELSE', 'RESULT') as $field) {
+        foreach (array('MERCHANT_ID', 'ACCOUNT', 'ORDER_ID', 'TIMESTAMP', 'AMOUNT', 'AUTHCODE', 'RESULT', 'MESSAGE', 'CVNRESULT', 'PASREF', 'BATCHID', 'ECI', 'CAVV', 'XID', 'SHA1HASH', 'TSS') as $field) {
             $data[$field] = $query->get($field);
         }
 
