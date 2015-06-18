@@ -15,7 +15,7 @@ class CompletePurchaseRequest extends PurchaseRequest
             return false;
         }
 
-        $signature = $data['MERCHANT_ID'].'.'.$data['ORDER_ID'].'.'.$data['RESULT'].'.'.$data['MESSAGE'].'.'.$data['PASREF'].'.'.$data['AUTHCODE'];
+        $signature = $data['TIMESTAMP'].'.'.$data['MERCHANT_ID'].'.'.$data['ORDER_ID'].'.'.$data['RESULT'].'.'.$data['MESSAGE'].'.'.$data['PASREF'].'.'.$data['AUTHCODE'];
         $signature = strtolower(sha1($signature));
         $signature .= '.'.$this->getSecretKey();
         $signature = strtolower(sha1($signature));
