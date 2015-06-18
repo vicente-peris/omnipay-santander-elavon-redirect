@@ -29,7 +29,7 @@ class CompletePurchaseRequest extends PurchaseRequest
         $requestSignature = $data['SHA1HASH'];
 
         if (!$this->checkSignature($generatedSignature, $requestSignature)) {
-            throw new InvalidResponseException('Invalid signature, Order:' . $data['ORDER_ID']);
+            throw new InvalidResponseException('Invalid signature '.$generatedSignature.', must be '.$requestSignature.', Order:' . $data['ORDER_ID']);
         }
 
         return $data;
