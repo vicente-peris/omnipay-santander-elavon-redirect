@@ -12,7 +12,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "syntelix/omnipay-santender-elavon": "@dev"
+        "syntelix/omnipay-santender-elavon-redirect": "dev-master"
     }
 }
 ```
