@@ -10,17 +10,8 @@ use Omnipay\Common\Exception\InvalidResponseException;
 class CompletePurchaseRequest extends PurchaseRequest
 {
 
-    public function checkSignature($data) {
-        if (!isset($data['SHA1HASH'])) {
-            return false;
-        }
-
-        $signature = $data['TIMESTAMP'].'.'.$data['MERCHANT_ID'].'.'.$data['ORDER_ID'].'.'.$data['AMOUNT'].'.'.$data['CURRENCY'];
-        $signature = strtolower(sha1($signature));
-        $signature .= '.'.$this->getSecretKey();
-        $signature = strtolower(sha1($signature));
-
-        return $signature == strtolower($data['SHA1HASH']);
+    public function checkSignature($generatedSignature, $requestSignature) {
+        return $generatedSignature == strtolower($requestSignature);
     }
 
     public function getData()
@@ -33,7 +24,11 @@ class CompletePurchaseRequest extends PurchaseRequest
             $data[$field] = $query->get($field);
         }
 
-        if (!$this->checkSignature($data)) {
+        $data['CURRENCY'] = $this->getCurrency();
+        $generatedSignature = $this->generateSignature($data);
+        $requestSignature = $data['SHA1HASH'];
+
+        if (!$this->checkSignature($generatedSignature, $requestSignature)) {
             throw new InvalidResponseException('Invalid signature, Order:' . $data['ORDER_ID']);
         }
 
