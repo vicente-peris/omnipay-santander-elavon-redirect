@@ -22,7 +22,12 @@ class CompletePurchaseResponse extends AbstractResponse
         return false;
     }
 
-    public function getTransactionReference() {
+    public function getOrderId() {
         return $this->data['ORDER_ID'];
+    }
+
+    public function getResult()
+    {
+        return $this->data['RESULT'];
     }
 }
