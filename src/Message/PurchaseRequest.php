@@ -70,7 +70,7 @@ class PurchaseRequest extends AbstractRequest
         $amount = str_replace(',', '', $amount);
         $now = new DateTime('NOW');
         $timestamp = $now->format('YmdHis');
-        $order = $timestamp;
+        $order = (!is_null($this->getTransactionId())) ? $this->getTransactionId() : $timestamp;
 
         $data = array(
             'MERCHANT_ID' => $this->getMerchantId(),
