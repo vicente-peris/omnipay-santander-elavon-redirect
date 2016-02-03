@@ -25,7 +25,7 @@ class CompletePurchaseRequest extends PurchaseRequest
 
     public function getData()
     {
-        $query = $this->httpRequest->request;
+        $query = $this->httpRequest->query;
 
         $data = array();
 
