@@ -79,7 +79,8 @@ class PurchaseRequest extends AbstractRequest
             'AMOUNT' => $amount,
             'CURRENCY' => $this->getCurrency(),
             'COMMENT1' => $this->getDescription(),
-            'TIMESTAMP' => $timestamp
+            'TIMESTAMP' => $timestamp,
+            'AUTO_SETTLE_FLAG' => 1
         );
 
         $data['SHA1HASH'] = $this->generateSignature($data);
