@@ -54,8 +54,39 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('metadata', $value);
     }
 
+    public function getPayerRef()
+    {
+        return $this->getParameter('payerRef');
+    }
+
+    public function setPayerRef($value)
+    {
+        return $this->setParameter('payerRef', $value);
+    }
+
+    public function getPmtRef()
+    {
+        return $this->getParameter('pmtRef');
+    }
+
+    public function setPmtRef($value)
+    {
+        return $this->setParameter('pmtRef', $value);
+    }
+
+    public function getOfferSaveCard()
+    {
+        return $this->getParameter('offerSaveCard');
+    }
+
+    public function setOfferSaveCard($value)
+    {
+        return $this->setParameter('offerSaveCard', $value);
+    }
+
     public function generateSignature($data) {
         $signature = $data['TIMESTAMP'].'.'.$data['MERCHANT_ID'].'.'.$data['ORDER_ID'].'.'.$data['AMOUNT'].'.'.$data['CURRENCY'];
+        if($this->getOfferSaveCard()) $signature .= '.'.$this->getPayerRef().'.'.$this->getPmtRef();
         $signature = strtolower(sha1($signature));
         $signature .= '.'.$this->getSecretKey();
         $signature = strtolower(sha1($signature));
@@ -82,6 +113,14 @@ class PurchaseRequest extends AbstractRequest
             'TIMESTAMP' => $timestamp,
             'AUTO_SETTLE_FLAG' => 1
         );
+
+        if($this->getOfferSaveCard()){
+          $data['OFFER_SAVE_CARD'] = 1;
+          $data['PAYER_REF'] = $this->getPayerRef();
+          $data['PMT_REF'] = $this->getPmtRef();
+          $data['PAYER_EXIST'] = 1;
+          $data['CARD_STORAGE_ENABLE'] = 1;
+        }
 
         $data['SHA1HASH'] = $this->generateSignature($data);
 
