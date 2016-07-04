@@ -20,6 +20,7 @@ class Gateway extends AbstractGateway
             'merchantId' => '',
             'secretKey' => '',
             'testMode' => false,
+            'offerSaveCard' => false
         );
     }
 
@@ -51,6 +52,36 @@ class Gateway extends AbstractGateway
     public function setAccount($value)
     {
         return $this->setParameter('account', $value);
+    }
+
+    public function getPayerRef()
+    {
+        return $this->getParameter('payerRef');
+    }
+
+    public function setPayerRef($value)
+    {
+        return $this->setParameter('payerRef', $value);
+    }
+
+    public function getPmtRef()
+    {
+        return $this->getParameter('pmtRef');
+    }
+
+    public function setPmtRef($value)
+    {
+        return $this->setParameter('pmtRef', $value);
+    }
+
+    public function getOfferSaveCard()
+    {
+        return $this->getParameter('offerSaveCard');
+    }
+
+    public function setOfferSaveCard($value)
+    {
+        return $this->setParameter('offerSaveCard', $value);
     }
 
     public function purchase(array $parameters = array())
